@@ -1,0 +1,17 @@
+{
+  "name": "m19-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Seshan KS",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fcm-notification": "^2.0.0",
+    "mongoose": "^5.6.9",
+    "nodemon": "^1.19.1"
+  }
+}

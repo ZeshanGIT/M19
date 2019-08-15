@@ -1,0 +1,15 @@
+events = [
+    "EPPADI PAADINARO! (Group Music)",
+    "‘EPIC’ COMEDY (Mythological Spoof)",
+    "THE PURSUIT OF TAPPINESS (Group Dance)",
+    "RADIOHUB FM 20.19 (RJ)",
+    "NEWSCORP PVT. LTD. (Journalism)",
+    "FRESH FROM THE OVEN (Entrepreneurship Development)",
+    "SPEAKERS’ CONCLAVE (Oratory Mixed Bag – English)",
+    "FACTS AND THE Q-RIOUS (The MahotSAV’19 Quiz)",
+    "அவியல் (Tamizh Mixed Bag)",
+    "BETTER HALF (Sketching)",
+    "THE COMIC BOOK (Comic sketching and 3-D model-making)",
+    "BRAVE THE BLITZKRIEG! (Title Event)",
+    "WEBDY (Workshop)",
+];
