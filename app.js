@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(require("./routes/schoolRoutes.js"));
 app.use(require("./routes/leaderboardRoutes.js"));
 app.use(require("./routes/tokenRoutes.js"));
-// app.use(require("./routes/leaderboardRoutes.js"));
+app.use(require("./routes/updateRoutes.js"));
 app.use(require("./routes/prizeRoutes.js"));
 
 //Base Route

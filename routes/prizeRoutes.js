@@ -2,8 +2,7 @@ var express = require("express"),
     router = express.Router(),
     School = require("../models/schoolModel.js"),
     Token = require("../models/tokenModel.js"),
-    fcm = require('fcm-notification'),
-    FCM = new fcm('private-key.json'),
+    FCM = require("../fcm.js"),
     Prize = require("../models/prizeModel.js");
 
 
@@ -28,8 +27,18 @@ router.post("/prize", function (req, res) {
                             console.log(err);
                         } else {
                             School.find({}, function (err, schls) {
+                                // schls.sort((a, b) => b.score - a.score);
+                                var i = 0;
+                                var rank = -1;
+                                var k = schls.filter(s => s.name == prize.school);
+                                console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+                                console.log(k);
+                                console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
                                 schls.sort((a, b) => b.score - a.score);
-                                var rank = schls.indexOf(school);
+                                rank = schls.indexOf(k[0]) + 1;
+                                console.log("^^^^^^^^^");
+                                console.log(rank);
+                                console.log("^^^^^^^^^");
 
                                 var tokens;
                                 Token.find({}, function (err, token) {
@@ -39,12 +48,12 @@ router.post("/prize", function (req, res) {
                                         tokens = token.map(({ token }) => token);
                                         console.log(tokens);
 
-                                        const { scl, event, position, score } = prize;
+                                        // const { school, event, position, score } = prize;
 
                                         var message = {
                                             notification: {
-                                                title: "${scl} secured ${position} in ${event}",
-                                                body: '${scl} now stands at ${rank} with ${school.score}'
+                                                title: `${prize.school} secured ${prize.position} position in ${prize.event}`,
+                                                body: `${prize.school} now stands at ${rank} with ${school.score}`
                                             }
                                         };
 
@@ -55,7 +64,6 @@ router.post("/prize", function (req, res) {
                                             } else {
                                                 console.log('response-----', response);
                                             }
-
                                         });
                                         res.send(school);
                                     }
